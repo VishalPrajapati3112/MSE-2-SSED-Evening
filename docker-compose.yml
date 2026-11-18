@@ -2,7 +2,7 @@ services:
   frontend:
     build:
       context: ./frontend
-    image: ${DOCKERHUB_USERNAME:-local}/frontend:latest
+    image: ${vishalprajapati214:-local}/frontend:latest
     ports:
       - "8080:80"
     depends_on:
@@ -15,7 +15,7 @@ services:
   backend:
     build:
       context: ./backend
-    image: ${DOCKERHUB_USERNAME:-local}/backend:latest
+    image: ${vishalprajapati214:-local}/backend:latest
     environment:
       PORT: "3000"
       PGHOST: postgres
