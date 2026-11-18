@@ -16,9 +16,13 @@ All terminal captures show live command output from this audit. They were captur
 
 Still unavailable (not fabricated):
 
-- `14-github-actions.png` - the workflow page currently shows 0 runs for the pushed branch.
+- `14-github-actions.png` - NOT VERIFIED; one dispatch attempt could not be completed with the authenticated access available in this environment, so no run exists to capture.
 - `15-github-repository.png` - the attempted page capture did not render repository contents.
-- `16-pull-request.png` - no PR exists.
-- `17-instructor-ci.png` - no PR or instructor checks exist.
+- `16-pull-request.png` - PR creation was rejected by the GitHub integration with HTTP 403 (`Resource not accessible by integration`), so no PR exists.
+- `17-instructor-ci.png` - pending creation of the PR; no instructor checks exist yet.
+
+Repository: https://github.com/VishalPrajapati3112/MSE-2-SSED-Evening
+Workflow: https://github.com/VishalPrajapati3112/MSE-2-SSED-Evening/actions/workflows/cd.yml (NOT VERIFIED; no run URL)
+Pull Request: NOT CREATED; the GitHub integration rejected the request with HTTP 403.
 
 Regenerate the PDF with `python scripts/generate_submission_pdf.py`; matching numbered PNGs are embedded automatically.
