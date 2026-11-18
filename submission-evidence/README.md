@@ -16,7 +16,7 @@ All terminal captures show live command output from this audit. They were captur
 
 Still unavailable (not fabricated):
 
-- `14-github-actions.png` - no workflow run exists; changes remain local.
+- `14-github-actions.png` - the workflow page currently shows 0 runs for the pushed branch.
 - `15-github-repository.png` - the attempted page capture did not render repository contents.
 - `16-pull-request.png` - no PR exists.
 - `17-instructor-ci.png` - no PR or instructor checks exist.

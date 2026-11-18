@@ -130,7 +130,7 @@ The workflow's JWT secret is generated for the ephemeral CI stack. The GitHub-ho
 
 ## J. Testing and verification
 
-The local Compose stack, production builds, API tests, service connectivity, PostgreSQL persistence, Redis restart, Docker Hub tags, and image-based deployment have been exercised. A real proxy issue after backend recreation was fixed by enabling periodic Docker DNS resolution in Nginx. Thirteen genuine screenshots are saved in `submission-evidence/` and embedded below: ten fresh terminal captures for builds, Compose status, networking, health, persistence, Redis restart and image-based deployment, plus Chromium captures of the application and both Docker Hub repositories. The image-based deployment health routes return `status: ok`, `postgres: ok`, and `redis: ok`. GitHub Actions was not run because the changes remain local; required secret configuration cannot be inspected from this session.
+The local Compose stack, production builds, API tests, service connectivity, PostgreSQL persistence, Redis restart, Docker Hub tags, and image-based deployment have been exercised. A real proxy issue after backend recreation was fixed by enabling periodic Docker DNS resolution in Nginx. Thirteen genuine screenshots are saved in `submission-evidence/` and embedded below: ten fresh terminal captures for builds, Compose status, networking, health, persistence, Redis restart and image-based deployment, plus Chromium captures of the application and both Docker Hub repositories. The image-based deployment health routes return `status: ok`, `postgres: ok`, and `redis: ok`. The push to the fork completed, but the GitHub Actions page for this workflow currently shows 0 runs. The workflow is therefore NOT RUN; required secret configuration cannot be inspected from this session, and there are no run logs or checks to evaluate.
 
 | Test | Command | Expected result | Actual result/status |
 | --- | --- | --- | --- |
@@ -150,11 +150,11 @@ The local Compose stack, production builds, API tests, service connectivity, Pos
 | Redis restart | `docker compose restart redis`, then `redis-cli ping` | Redis returns healthy and `PONG` | PASS — Redis healthy and returned PONG |
 | Docker Hub publishing | Four `docker push` commands and `docker manifest inspect` | Four tags exist | PASS — frontend/backend `v1` and `latest` tags verified |
 | Image-based deployment | `docker compose -f docker-compose.deploy.yml pull/up -d` | Published image stack healthy | PASS — images pulled; frontend/backend health routes passed after DNS fix |
-| GitHub Actions | Push to `main`; inspect Actions run | Workflow passes all steps | NOT VERIFIED — changes remain uncommitted/unpushed; secret presence is not visible in this session |
+| GitHub Actions | Push to `main`; inspect Actions run | Workflow passes all steps | NOT RUN - the workflow page shows 0 runs; secret presence is not visible in this session |
 
 ## K. Screenshot evidence checklist
 
-Thirteen genuine screenshots are embedded below: ten terminal captures listed in items 1-9 and 12, plus the application and Docker Hub browser captures in items 10, 11, and 13. No screenshot is provided for GitHub Actions, Pull Request, or instructor CI because those events have not occurred. The repository capture could not show the repository page, so it remains unavailable.
+Thirteen genuine screenshots are embedded below: ten terminal captures listed in items 1-9 and 12, plus the application and Docker Hub browser captures in items 10, 11, and 13. No screenshot is provided for GitHub Actions, Pull Request, or instructor CI because those events have not occurred. The repository capture did not render repository contents and remains unavailable.
 
 1. **Frontend Docker build** - CAPTURED: `submission-evidence/01-frontend-build.png` (embedded below)
 2. **Backend Docker build** - CAPTURED: `submission-evidence/02-backend-build.png` (embedded below)
@@ -169,7 +169,7 @@ Thirteen genuine screenshots are embedded below: ten terminal captures listed in
 11. **Docker Hub backend tags** — CAPTURED: `submission-evidence/11-dockerhub-backend.png` (embedded below)
 12. **Image-based deployment** - CAPTURED: `submission-evidence/12-image-deployment.png` (embedded below)
 13. **Application browser view** — CAPTURED: `submission-evidence/13-application-browser.png` (embedded below)
-14. **GitHub Actions success** — [NOT AVAILABLE: workflow not run because changes remain local]
+14. **GitHub Actions success** — [NOT AVAILABLE: workflow page currently shows 0 runs]
 15. **GitHub repository/branch** — [NOT AVAILABLE: implementation files are uncommitted]
 16. **Pull Request page** — [NOT AVAILABLE: no PR created]
 17. **Instructor CI checks** — [NOT AVAILABLE: no PR exists]
@@ -177,17 +177,17 @@ Thirteen genuine screenshots are embedded below: ten terminal captures listed in
 ## L. GitHub submission information
 
 - Fork repository: `https://github.com/VishalPrajapati3112/MSE-2-SSED-Evening`
-- Working branch: `main` (current local branch)
+- Working branch: `main` (pushed to the fork)
 - Submission PDF: `2400291530214_Vishal_Prajapati_SET2.pdf`
-- Pull Request URL: [ENTER AFTER CREATING PR]
+- Pull Request URL: [PENDING: create only after successful CI]
 - Pull Request title: `DOCKER-SET-2 | 2400291530214 | Vishal Prajapati | AIML-C`
-- GitHub Actions workflow run: [ENTER AFTER RUN]
+- GitHub Actions workflow page: [0 runs; not verified](https://github.com/VishalPrajapati3112/MSE-2-SSED-Evening/actions/workflows/cd.yml)
 - Docker Hub frontend repository: vishalprajapati214/frontend
 - Docker Hub backend repository: vishalprajapati214/backend
 
 ## M. Conclusion
 
-The application builds and runs with four healthy Compose services, passes all 12 API integration tests, connects to PostgreSQL and Redis through Compose DNS, preserves PostgreSQL data across container recreation, and has all requested Docker Hub tags published and verified. The image-only deployment works through both frontend and backend health routes after the Nginx DNS refresh fix. GitHub Actions and remote GitHub submission remain unverified because changes are still local. The ten requested terminal screenshots have now been captured from fresh successful command output. The three browser captures remain included. Only GitHub event screenshots 14-17 remain unavailable.
+The application builds and runs with four healthy Compose services, passes all 12 API integration tests, connects to PostgreSQL and Redis through Compose DNS, preserves PostgreSQL data across container recreation, and has all requested Docker Hub tags published and verified. The image-only deployment works through both frontend and backend health routes after the Nginx DNS refresh fix. The branch is pushed to the fork, but the workflow page reports zero runs; Actions remains NOT VERIFIED and the PR is pending successful CI. The ten requested terminal screenshots have now been captured from fresh successful command output. The three browser captures remain included. GitHub workflow, PR, repository, and instructor CI screenshots 14-17 remain unavailable.
 
 ## N. Declaration
 
