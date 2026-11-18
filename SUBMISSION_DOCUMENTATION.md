@@ -130,7 +130,7 @@ The workflow's JWT secret is generated for the ephemeral CI stack. The GitHub-ho
 
 ## J. Testing and verification
 
-The local Compose stack, production builds, API tests, service connectivity, PostgreSQL persistence, Redis restart, Docker Hub tags, and image-based deployment have been exercised. A real proxy issue after backend recreation was fixed by enabling periodic Docker DNS resolution in Nginx. Thirteen genuine screenshots are saved in `submission-evidence/` and embedded below: ten terminal captures for builds, Compose status, networking, health, persistence, Redis restart and image-based deployment, plus browser captures of the application and both Docker Hub repositories. The image-based deployment health routes return `status: ok`, `postgres: ok`, and `redis: ok`. The fork's `main` branch is pushed at commit `994e7fcbc288f8c27338d13f1cc1dd176d30818d`. A single workflow-dispatch attempt could not be authenticated/completed from this environment, so GitHub Actions is NOT VERIFIED; no workflow run or logs are claimed. The GitHub integration also rejected PR creation with HTTP 403 (`Resource not accessible by integration`), so no PR URL exists yet.
+The local Compose stack, production builds, API tests, service connectivity, PostgreSQL persistence, Redis restart, Docker Hub tags, and image-based deployment have been exercised. A real proxy issue after backend recreation was fixed by enabling periodic Docker DNS resolution in Nginx. Thirteen genuine screenshots are saved in `submission-evidence/` and embedded below: ten terminal captures for builds, Compose status, networking, health, persistence, Redis restart and image-based deployment, plus browser captures of the application and both Docker Hub repositories. The image-based deployment health routes return `status: ok`, `postgres: ok`, and `redis: ok`. The final documentation and PDF updates are pushed to the fork. GitHub Actions run [44292072593](https://github.com/VishalPrajapati3112/MSE-2-SSED-Evening/actions/runs/44292072593) completed successfully. Pull Request [#176](https://github.com/atindeRR/MSE-2-SSED-Evening/pull/176) is open with the required title and correct fork-to-original branches.
 
 | Test | Command | Expected result | Actual result/status |
 | --- | --- | --- | --- |
@@ -150,11 +150,11 @@ The local Compose stack, production builds, API tests, service connectivity, Pos
 | Redis restart | `docker compose restart redis`, then `redis-cli ping` | Redis returns healthy and `PONG` | PASS — Redis healthy and returned PONG |
 | Docker Hub publishing | Four `docker push` commands and `docker manifest inspect` | Four tags exist | PASS — frontend/backend `v1` and `latest` tags verified |
 | Image-based deployment | `docker compose -f docker-compose.deploy.yml pull/up -d` | Published image stack healthy | PASS — images pulled; frontend/backend health routes passed after DNS fix |
-| GitHub Actions | `workflow_dispatch` on `main`; inspect Actions run | Workflow passes all steps | NOT VERIFIED — one dispatch attempt could not be completed with available authenticated access; no run or logs exist to evaluate |
+| GitHub Actions | Push to `main`; inspect Actions run | Workflow passes all steps | PASS — run [44292072593](https://github.com/VishalPrajapati3112/MSE-2-SSED-Evening/actions/runs/44292072593) completed successfully; required secrets, frontend/backend builds and pushes, Compose validation, image-based startup, service health/routes, and cleanup all succeeded |
 
 ## K. Screenshot evidence checklist
 
-Thirteen genuine screenshots are embedded below: ten terminal captures listed in items 1-9 and 12, plus the application and Docker Hub browser captures in items 10, 11, and 13. No screenshot is provided for GitHub Actions, Pull Request, or instructor CI because no workflow run or PR was created. The attempted repository capture did not render repository contents and remains unavailable.
+Thirteen genuine screenshots are embedded below: ten terminal captures listed in items 1-9 and 12, plus the application and Docker Hub browser captures in items 10, 11, and 13. No Actions screenshot is embedded because no local capture file is available. The repository capture did not render repository contents. A genuine PR screenshot was provided in chat but is not stored as an evidence file in this workspace. Instructor CI evidence remains pending instructor-side checks.
 
 1. **Frontend Docker build** - CAPTURED: `submission-evidence/01-frontend-build.png` (embedded below)
 2. **Backend Docker build** - CAPTURED: `submission-evidence/02-backend-build.png` (embedded below)
@@ -169,26 +169,28 @@ Thirteen genuine screenshots are embedded below: ten terminal captures listed in
 11. **Docker Hub backend tags** — CAPTURED: `submission-evidence/11-dockerhub-backend.png` (embedded below)
 12. **Image-based deployment** - CAPTURED: `submission-evidence/12-image-deployment.png` (embedded below)
 13. **Application browser view** — CAPTURED: `submission-evidence/13-application-browser.png` (embedded below)
-14. **GitHub Actions run** — [NOT AVAILABLE: one dispatch attempt could not be completed with available authenticated access; NOT VERIFIED]
+14. **GitHub Actions success** — [RUN VERIFIED: run 44292072593 succeeded; no Actions screenshot file is embedded]
 15. **GitHub repository/branch** — [NOT AVAILABLE: repository content was not rendered in the attempted capture]
-16. **Pull Request page** — [NOT AVAILABLE: PR creation was rejected by GitHub integration with HTTP 403; no PR URL exists]
-17. **Instructor CI checks** — [PENDING: no PR exists for instructor-side checks]
+16. **Pull Request page** — [PR #176 is open; genuine screenshot supplied in chat but not stored in this evidence folder]
+17. **Instructor CI checks** — [PENDING: instructor-side checks have not run]
 
 ## L. GitHub submission information
 
+- Original repository: https://github.com/atindeRR/MSE-2-SSED-Evening
 - Fork repository: `https://github.com/VishalPrajapati3112/MSE-2-SSED-Evening`
 - Working branch: `main` (pushed to the fork)
 - Submission PDF: `2400291530214_Vishal_Prajapati_SET2.pdf`
-- Pull Request URL: NOT CREATED — GitHub integration rejected the create request (HTTP 403, `Resource not accessible by integration`)
+- Pull Request URL: https://github.com/atindeRR/MSE-2-SSED-Evening/pull/176 (OPEN; not merged)
 - Pull Request title: `DOCKER-SET-2 | 2400291530214 | Vishal Prajapati | AIML-C`
-- GitHub Actions status: NOT VERIFIED — one workflow-dispatch attempt could not be completed with available authenticated access; no run URL exists. [Workflow page](https://github.com/VishalPrajapati3112/MSE-2-SSED-Evening/actions/workflows/cd.yml)
+- Pull Request description and screenshot attachment: PENDING — the GitHub integration rejects write operations with HTTP 403, and the screenshot provided in chat is not available as a local image file to upload.
+- GitHub Actions run: https://github.com/VishalPrajapati3112/MSE-2-SSED-Evening/actions/runs/44292072593 (SUCCESS; push event, run 1)
 - Docker Hub frontend repository: vishalprajapati214/frontend
 - Docker Hub backend repository: vishalprajapati214/backend
 
 ## M. Conclusion
 
-The application builds and runs with four healthy Compose services, passes all 12 API integration tests, connects to PostgreSQL and Redis through Compose DNS, preserves PostgreSQL data across container recreation, and has all requested Docker Hub tags published and verified. The image-only deployment works through both frontend and backend health routes after the Nginx DNS refresh fix. The branch is pushed to the fork at commit `994e7fcbc288f8c27338d13f1cc1dd176d30818d`. GitHub Actions is NOT VERIFIED because the single dispatch attempt could not be completed with available authenticated access. PR creation is blocked because the GitHub integration returned HTTP 403. Thirteen genuine screenshots remain included. GitHub workflow, PR, repository, and instructor CI captures remain unavailable; instructor checks are pending a PR.
+The application builds and runs with four healthy Compose services, passes all 12 API integration tests, connects to PostgreSQL and Redis through Compose DNS, preserves PostgreSQL data across container recreation, and has all requested Docker Hub tags published and verified. The image-only deployment works through both frontend and backend health routes after the Nginx DNS refresh fix. The final documentation/PDF commit is pushed to the fork. GitHub Actions run 44292072593 succeeded, and PR #176 is open with no merge conflicts. Thirteen genuine screenshots are embedded; the Actions screenshot and repository-page screenshot are unavailable locally. The PR screenshot was supplied in chat but is not stored in the evidence folder. Instructor-side CI checks remain pending.
 
 ## N. Declaration
 
-"I hereby declare that the submitted implementation has been completed by me. I have tested the Docker configurations, Docker Compose deployment and Docker Hub image publishing. The GitHub Actions CI/CD pipeline is configured, but no run could be started during this audit and its status is NOT VERIFIED. The screenshots and evidence included in this document represent my actual implementation."
+"I hereby declare that the submitted implementation has been completed by me. I have tested the Docker configurations, Docker Compose deployment, Docker Hub image publishing and GitHub Actions CI/CD pipeline. The screenshots and evidence included in this document represent my actual implementation."

@@ -16,13 +16,14 @@ All terminal captures show live command output from this audit. They were captur
 
 Still unavailable (not fabricated):
 
-- `14-github-actions.png` - NOT VERIFIED; one dispatch attempt could not be completed with the authenticated access available in this environment, so no run exists to capture.
+- `14-github-actions.png` - the actual run succeeded, but no local Actions screenshot file is available.
 - `15-github-repository.png` - the attempted page capture did not render repository contents.
-- `16-pull-request.png` - PR creation was rejected by the GitHub integration with HTTP 403 (`Resource not accessible by integration`), so no PR exists.
-- `17-instructor-ci.png` - pending creation of the PR; no instructor checks exist yet.
+- `16-pull-request.png` - a genuine PR screenshot was provided in chat, but it is not saved in this folder.
+- `17-instructor-ci.png` - pending instructor-side checks; the PR is open but instructor checks have not run.
 
 Repository: https://github.com/VishalPrajapati3112/MSE-2-SSED-Evening
-Workflow: https://github.com/VishalPrajapati3112/MSE-2-SSED-Evening/actions/workflows/cd.yml (NOT VERIFIED; no run URL)
-Pull Request: NOT CREATED; the GitHub integration rejected the request with HTTP 403.
+Workflow run: https://github.com/VishalPrajapati3112/MSE-2-SSED-Evening/actions/runs/44292072593 (SUCCESS)
+Pull Request: https://github.com/atindeRR/MSE-2-SSED-Evening/pull/176 (OPEN; not merged)
+PR description/screenshot attachment: pending; GitHub integration write requests returned HTTP 403 and the chat screenshot is not available as a local file to upload.
 
 Regenerate the PDF with `python scripts/generate_submission_pdf.py`; matching numbered PNGs are embedded automatically.
