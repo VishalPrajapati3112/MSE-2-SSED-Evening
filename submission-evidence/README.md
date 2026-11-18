@@ -1,0 +1,24 @@
+# Submission evidence status
+
+Thirteen genuine screenshots are included:
+
+- `01-frontend-build.png` and `02-backend-build.png` - fresh Docker Compose image builds and local image inspection.
+- `03-compose-services.png` - four image-deployment services running and healthy.
+- `04-docker-network.png` - Compose bridge network name, driver, scope, and connected container count.
+- `05-postgres-health.png`, `06-redis-health.png`, and `07-backend-health.png` - live container health and backend health route.
+- `08-postgres-persistence.png` - a fresh sentinel survived PostgreSQL container removal and recreation; the named volume was retained.
+- `09-redis-restart.png` - Redis restarted, became healthy, and returned `PONG`.
+- `10-dockerhub-frontend.png` and `11-dockerhub-backend.png` - public Docker Hub tags.
+- `12-image-deployment.png` - image pull, health-gated deployment, four healthy services, and both health routes.
+- `13-application-browser.png` - TaskFlow served by the published-image deployment.
+
+All terminal captures show live command output from this audit. They were captured from the full desktop terminal view without editing or adding output to the images.
+
+Still unavailable (not fabricated):
+
+- `14-github-actions.png` - no workflow run exists; changes remain local.
+- `15-github-repository.png` - the attempted page capture did not render repository contents.
+- `16-pull-request.png` - no PR exists.
+- `17-instructor-ci.png` - no PR or instructor checks exist.
+
+Regenerate the PDF with `python scripts/generate_submission_pdf.py`; matching numbered PNGs are embedded automatically.
